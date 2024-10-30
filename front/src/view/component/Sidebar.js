@@ -9,18 +9,50 @@ export default function Sidebar({ color }) {
         >
             <div
                 style={{
-                    mt: 'auto'
+                    direction: 'column'
                 }}
-
             >
-
                 <p
                     style={{
-                        fontWeight: '700',
-                        margin: '0'
+                        fontWeight: '700'
                     }}
                 >
-                    사이드 바 예정입니다.
+                    HOME
+                </p>
+                <p
+                    style={{
+                        fontWeight: '700'
+                    }}
+                >
+                    안전 진단
+                </p>
+                <p
+                    style={{
+                        fontWeight: '700'
+                    }}
+                >
+                    위험 분석
+                </p>
+                <p
+                    style={{
+                        fontWeight: '700'
+                    }}
+                >
+                    모니터링
+                </p>
+                <p
+                    style={{
+                        fontWeight: '700'
+                    }}
+                >
+                    프로젝트
+                </p>
+                <p
+                    style={{
+                        fontWeight: '700'
+                    }}
+                >
+                    리포트
                 </p>
             </div>
         </div>

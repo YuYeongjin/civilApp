@@ -5,7 +5,7 @@ import React from "react";
 export default function FirstComponent({ color }) {
     return (
         <div
-            style={{ height: '20vh', width: '90vw', backgroundColor: 'green', }}
+            style={{ height: '20vh', width: '80vw', backgroundColor: 'green', }}
         >
             <div
                 style={{
