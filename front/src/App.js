@@ -3,16 +3,14 @@ import './css/App.css';
 import Footer from './view/component/Footer';
 import Sidebar from './view/component/Sidebar';
 import Topbar from './view/component/Topbar';
-import LoginPage from './view/Login';
-import MyPage from './view/MyPage';
+import LoginPage from './view/login';
+import MyPage from './view/myPage';
 import MainPage from './view/mainPage';
 
 function App() {
   const [pageComponent, setPageComponent] = useState();
 
   const [user, setUser] = useState();
-
-
 
   return (
     <>

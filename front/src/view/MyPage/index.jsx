@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // External Libraries
 import axios from 'axios';
 
-export default function MyPage({ }) {
+export default function MyPageDashboard({ }) {
 
     const [text, setText] = useState();
 

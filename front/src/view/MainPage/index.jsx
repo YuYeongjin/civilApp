@@ -5,7 +5,7 @@ import axios from 'axios';
 import FirstComponent from "./component/FirstComponent";
 import SecondComponent from "./component/SecondComponent";
 
-export default function MainPage({ }) {
+export default function MainDashboard({ }) {
 
     const [text, setText] = useState();
     const [currentTime, setCurrentTime] = useState(new Date());
