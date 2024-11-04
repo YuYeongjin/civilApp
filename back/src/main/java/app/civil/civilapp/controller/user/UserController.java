@@ -1,6 +1,6 @@
-package app.civil.civilapp.controller;
+package app.civil.civilapp.controller.user;
 
-import app.civil.civilapp.service.UserService;
+import app.civil.civilapp.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

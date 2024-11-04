@@ -1,0 +1,36 @@
+package app.civil.civilapp.service.weather;
+
+import app.civil.civilapp.util.WeatherAPI;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+public class WeatherServiceImpl implements WeatherService {
+
+    @Override
+    public Map<String, String> main() {
+        Map<String,String> result=new HashMap<>();
+
+        result.put("result","ok");
+        return result;
+    }
+
+    @Override
+    public Map<String, String> getInfo() {
+        Map<String,String> result=new HashMap<>();
+
+        Map<String, String> test = new  HashMap<>();
+
+        String tm = "202411040900"; // 년월일시분
+        String stn = ""; // 지점번호 0이거나 없으면 전체지점
+        String help = "0"; // 1이면 DTO 값 도움말 표시
+        String authKey = "";
+        test.put("test" ,WeatherAPI.getGroundInfo());
+
+        System.out.println(test);
+        result.put("result","ok");
+        return result;
+    }
+}

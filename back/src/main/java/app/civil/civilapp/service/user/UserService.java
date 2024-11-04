@@ -1,4 +1,4 @@
-package app.civil.civilapp.service;
+package app.civil.civilapp.service.user;
 
 import java.util.Map;
 

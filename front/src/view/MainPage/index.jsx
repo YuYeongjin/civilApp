@@ -10,14 +10,26 @@ export default function MainPage({ }) {
     const [text, setText] = useState();
 
     useEffect(() => {
-        axios.post("/api/user/main")
+        axios.post("http://localhost:7050/api/user/main")
             .then((response) => {
                 setText(response.data.result);
             })
             .catch((error) => {
-
+                console.log(error);
             })
+        axios.post("http://localhost:7050/api/weather/getInfo", {
+
+        })
+            .then((responses) => {
+                console.log(responses);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+
     }, [])
+
 
     return (
 
