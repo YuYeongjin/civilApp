@@ -8,27 +8,40 @@ import SecondComponent from "./component/SecondComponent";
 export default function MainPage({ }) {
 
     const [text, setText] = useState();
+    const [currentTime, setCurrentTime] = useState(new Date());
+    const [callFunction, setCallFunction] = useState(false);
 
     useEffect(() => {
-        axios.post("http://localhost:7050/api/user/main")
-            .then((response) => {
-                setText(response.data.result);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-        axios.post("http://localhost:7050/api/weather/getInfo", {
+        const timer = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
 
-        })
-            .then((responses) => {
-                console.log(responses);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        return () => clearInterval(timer);
+    }, []);
+    useEffect(() => {
+        if (callFunction) {
 
+            axios.post("http://localhost:7050/api/user/main")
+                .then((response) => {
+                    setText(response.data.result);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+            axios.post("http://localhost:7050/api/weather/getInfo", {
 
-    }, [])
+            })
+                .then((responses) => {
+                    console.log(responses);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+
+            setCallFunction(false);
+        }
+
+    }, [callFunction])
 
 
     return (
@@ -40,7 +53,16 @@ export default function MainPage({ }) {
                     position: 'relative'
                 }}>
 
-                <FirstComponent />
+                <button
+                    onClick={() => {
+                        setCallFunction(true);
+                    }}
+                    style={{
+                        color: 'orange'
+                    }}>
+                    기상청 api call
+                </button>
+                <FirstComponent currentTime={currentTime} />
                 <SecondComponent />
                 <p style={{ color: 'white' }}>
                     {text}

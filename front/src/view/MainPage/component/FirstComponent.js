@@ -1,18 +1,19 @@
 // React
-import React from "react";
+import React, { useState, useEffect } from "react";
 // External Libraries
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 
-export default function FirstComponent({ color }) {
+export default function FirstComponent({ currentTime }) {
+
     return (
         <div
-            style={{  backgroundColor: 'green', }}
+            style={{ backgroundColor: 'green', }}
         >
             <div
                 style={{
-                    mt: 'auto'
+                    display: 'flex'
                 }}
 
             >
@@ -26,6 +27,14 @@ export default function FirstComponent({ color }) {
                         <Popup>Seoul</Popup>
                     </Marker>
                 </MapContainer>
+                <div style={{
+                    border: '1px solid gray'
+                }}>
+                    <p>
+                        현재 시각
+                    </p>
+                    <p>{currentTime.toLocaleString()}</p>
+                </div>
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 package app.civil.civilapp.service.weather;
 
 import app.civil.civilapp.util.WeatherAPI;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -8,6 +9,9 @@ import java.util.Map;
 
 @Service
 public class WeatherServiceImpl implements WeatherService {
+
+    @Value("${weather.authKey}")
+    private String authKey;
 
     @Override
     public Map<String, String> main() {
@@ -26,8 +30,7 @@ public class WeatherServiceImpl implements WeatherService {
         String tm = "202411040900"; // 년월일시분
         String stn = ""; // 지점번호 0이거나 없으면 전체지점
         String help = "0"; // 1이면 DTO 값 도움말 표시
-        String authKey = "";
-        test.put("test" ,WeatherAPI.getGroundInfo());
+        test.put("test" ,WeatherAPI.getGroundInfo(tm, stn, help,authKey));
 
         System.out.println(test);
         result.put("result","ok");

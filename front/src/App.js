@@ -3,9 +3,9 @@ import './css/App.css';
 import Footer from './view/component/Footer';
 import Sidebar from './view/component/Sidebar';
 import Topbar from './view/component/Topbar';
-import MainPage from './view/MainPage';
 import LoginPage from './view/Login';
 import MyPage from './view/MyPage';
+import MainPage from './view/mainPage';
 
 function App() {
   const [pageComponent, setPageComponent] = useState();

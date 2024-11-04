@@ -1,24 +1,18 @@
 package app.civil.civilapp.util;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+@RequiredArgsConstructor
 public class WeatherAPI {
 
-
-    @Value("${weather.authKey}")
-    private static String authKey;
-
-    public static String getGroundInfo() {
-        String path = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?tm=202211300900&stn=0&help=0&authKey="+authKey;
-
-
+    public static String getGroundInfo(String tm, String stn, String help,String authKey ) {
+        String path = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?tm="+tm+"&stn="+stn+"&help="+help+"&authKey="+authKey;
+        System.out.println("PATH : "+path);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(path, String.class);
-
-
 
         return response.getBody();
     }
