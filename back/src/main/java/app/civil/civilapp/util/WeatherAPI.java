@@ -1,5 +1,6 @@
 package app.civil.civilapp.util;
 
+import app.civil.civilapp.dto.weather.WeatherContents;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,8 @@ public class WeatherAPI {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(path, String.class);
 
+        WeatherContents weather = restTemplate.getForObject(path, WeatherContents.class);
+        System.out.println(weather);
         return response.getBody();
     }
 }
