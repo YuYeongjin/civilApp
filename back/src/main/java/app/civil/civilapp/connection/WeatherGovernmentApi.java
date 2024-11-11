@@ -8,7 +8,7 @@ public class WeatherGovernmentApi {
     // WebUI Login
 
     public static Object getBlockWithAPI(String primaryServerUri, String api, String path, Class<?> clazz) {
-        return NetBackupWebClient.createWithAPI(primaryServerUri, api)
+        return WeatherWebClient.createWithAPI(primaryServerUri, api)
                 .get()
                 .uri(path)
                 .retrieve()
