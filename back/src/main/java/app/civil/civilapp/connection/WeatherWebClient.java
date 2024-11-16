@@ -24,8 +24,8 @@ import java.util.concurrent.TimeUnit;
 public class WeatherWebClient {
     private static HttpHeaders createHeadersWithAPI(String api) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/vnd.netbackup+json;version=11.0");
-        headers.add("Content-Type", "application/vnd.netbackup+json;version=11.0");
+        headers.add("Accept", "application/vnd.weather+json;version=11.0");
+        headers.add("Content-Type", "application/vnd.weather+json;version=11.0");
         headers.add("Authorization", api);
 
         return headers;
@@ -33,8 +33,8 @@ public class WeatherWebClient {
 
     private static HttpHeaders createHeadersWithAuth(String type, String bearer) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/vnd.netbackup+json;version=11.0");
-        headers.add("Content-Type", "application/vnd.netbackup+json;version=11.0");
+        headers.add("Accept", "application/vnd.weather+json;version=11.0");
+        headers.add("Content-Type", "application/vnd.weather+json;version=11.0");
         headers.add("Authorization", String.format("%s %s", type, bearer));
 
         return headers;
@@ -42,8 +42,8 @@ public class WeatherWebClient {
 
     private static HttpHeaders createHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/vnd.netbackup+json;version=11.0");
-        headers.add("Content-Type", "application/vnd.netbackup+json;version=11.0");
+        headers.add("Accept", "application/vnd.weather+json;version=11.0");
+        headers.add("Content-Type", "application/vnd.weather+json;version=11.0");
 
         return headers;
     }
