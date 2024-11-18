@@ -56,8 +56,9 @@ public class WeatherWebClient {
             e.printStackTrace();
         }
 
-        int timeout = Integer.parseInt(timeoutConfig.getValue());
+        int timeout = 15000;
 
+        SslContext finalContext = context;
         return HttpClient.create()
        //         .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, timeout)
                 .responseTimeout(Duration.ofSeconds(15))
