@@ -1,6 +1,7 @@
 package app.civil.civilapp.service.weather;
 
 import app.civil.civilapp.util.WeatherAPI;
+import app.civil.civilapp.util.WeatherConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,7 @@ public class WeatherServiceImpl implements WeatherService {
         test.put("test" ,WeatherAPI.getGroundInfo(tm, stn, help,authKey));
 
         System.out.println(test);
+        System.out.println(        WeatherConverter.convert(test));
         result.put("result","ok");
         return result;
     }
