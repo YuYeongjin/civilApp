@@ -1,12 +1,12 @@
 package app.civil.civilapp.dto.weather;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Builder
+@AllArgsConstructor
 public class WeatherContents {
     String date;
     String TM; // 관측시각 (KST)
@@ -55,7 +55,24 @@ public class WeatherContents {
     String BF     ; // Beaufart 최대풍력(GTS코드)
     String IR     ; // 강수자료 유무 (Code 1819) .. 1(Sec1에 포함), 2(Sec3에 포함), 3(무강수), 4(결측)
     String IX     ; // 유인관측/무인관측 및 일기 포함여부 (code 1860) .. 1,2,3(유인) 4,5,6(무인) / 1,4(포함), 2,5(생략), 3,6(결측)
+    String SPOT   ; //  지역명
+    @Override
+    public String toString() {
+            return 
+                "date=" + date + ", TM= " + TM + ", SPOT = " + SPOT+", STN=" + STN +", WD=" + WD +", WS=" + WS
+               + ", GST_WD=" + GST_WD +", GST_WS=" + GST_WS +", GST_TM=" + GST_TM +", PA=" + PA
+               + ", PS=" + PS +", PT=" + PT +", PR=" + PR +", TA=" + TA +", TD=" + TD
+               + ", HM=" + HM +", PV=" + PV +", RN=" + RN +", RN_DAY=" + RN_DAY +", RN_JUN=" + RN_JUN
+               + ", RN_INT=" + RN_INT +", SD_HR3=" + SD_HR3 +", SD_DAY=" + SD_DAY +", SD_TOT=" + SD_TOT
+               + ", WC=" + WC +", WP=" + WP +", WW=" + WW +", CA_TOT=" + CA_TOT +", CA_MID=" + CA_MID
+               + ", CH_MIN=" + CH_MIN +", CT=" + CT +", CT_TOP=" + CT_TOP +", CT_MID=" + CT_MID
+               + ", CT_LOW=" + CT_LOW +", VS=" + VS +", SS=" + SS +", SI=" + SI +", ST_GD=" + ST_GD
+               + ", TS=" + TS +", TE_005=" + TE_005 +", TE_01=" + TE_01 +", TE_02=" + TE_02
+               + ", TE_03=" + TE_03 +", ST_SEA=" + ST_SEA +", WH=" + WH +", BF=" + BF +", IR=" + IR
+               + ", IX=" + IX;
 
+       
+    };
 
 
 

@@ -18,7 +18,8 @@ public class WeatherAPI {
     }
     public static String getGroundInfo(String tm, String stn, String help,String authKey ) {
    //     String path =  "api/typ01/url/kma_sfctm2.php?tm="+tm+"&stn="+stn+"&help="+help+"&authKey="+authKey;
-        String path = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?tm="+tm+"&stn="+stn+"&help="+help+"&authKey="+authKey;
+        String path = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?tm="+stn+"&help="+help+"&authKey="+authKey;
+//        String path = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?tm="+tm+"&stn="+stn+"&help="+help+"&authKey="+authKey;
         System.out.println("PATH : "+path);
 
         RestTemplate restTemplate = new RestTemplate();
