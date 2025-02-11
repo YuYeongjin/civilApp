@@ -5,53 +5,27 @@ import React from "react";
 export default function Sidebar({ color }) {
     return (
         <div
-            style={{ margin: '0', height: '90vh', width: '10vh', backgroundColor: 'blue', position: 'relative' }}
+            className='sidebar w-10 bg-primary'
         >
             <div
-                style={{
-                    direction: 'column'
-                }}
+                className="flex-column fw-bold text-white "
             >
-                <p
-                    style={{
-                        fontWeight: '700'
-                    }}
-                >
+                <p>
                     HOME
                 </p>
-                <p
-                    style={{
-                        fontWeight: '700'
-                    }}
-                >
+                <p >
                     안전 진단
                 </p>
-                <p
-                    style={{
-                        fontWeight: '700'
-                    }}
-                >
+                <p>
                     위험 분석
                 </p>
-                <p
-                    style={{
-                        fontWeight: '700'
-                    }}
-                >
+                <p>
                     모니터링
                 </p>
-                <p
-                    style={{
-                        fontWeight: '700'
-                    }}
-                >
+                <p >
                     프로젝트
                 </p>
-                <p
-                    style={{
-                        fontWeight: '700'
-                    }}
-                >
+                <p>
                     리포트
                 </p>
             </div>

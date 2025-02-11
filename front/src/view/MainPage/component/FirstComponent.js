@@ -9,12 +9,10 @@ export default function FirstComponent({ currentTime }) {
 
     return (
         <div
-            style={{ backgroundColor: 'green', }}
+            className="bg-success"
         >
             <div
-                style={{
-                    display: 'flex'
-                }}
+                className="d-flex"
             >
                 <MapContainer center={[35.9078, 127.7669]} zoom={7} style={{ height: "500px", width: "300px" }}>
                     <TileLayer

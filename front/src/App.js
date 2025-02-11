@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './css/App.css';
+import './css/web.css';
+import './css/theme.bundle.css';
 import Footer from './view/component/Footer';
 import Sidebar from './view/component/Sidebar';
 import Topbar from './view/component/Topbar';

@@ -5,13 +5,12 @@ import React from "react";
 export default function SecondComponent({ color }) {
     return (
         <div
-            style={{ height: '20vh', width: '80vw', backgroundColor: 'yellow', }}
+            className="bg-info vh-25 w-100"
         >
             <div
                 style={{
                     mt: 'auto'
                 }}
-
             >
 
                 <p fontWeight='500'>
