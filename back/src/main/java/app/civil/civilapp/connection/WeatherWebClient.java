@@ -17,6 +17,7 @@ import org.springframework.web.reactive.function.client.*;
 
 import reactor.netty.http.client.HttpClient;
 import java.time.Duration;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 
@@ -24,10 +25,8 @@ import java.util.concurrent.TimeUnit;
 public class WeatherWebClient {
     private static HttpHeaders createHeadersWithAPI(String api) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/vnd.weather+json;version=11.0");
-        headers.add("Content-Type", "application/vnd.weather+json;version=11.0");
-        headers.add("Authorization", api);
-
+        headers.add("Accept", "application/json");
+        headers.add("Content-Type", "application/json");
         return headers;
     }
 
@@ -42,31 +41,28 @@ public class WeatherWebClient {
 
     private static HttpHeaders createHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", "application/vnd.weather+json;version=11.0");
-        headers.add("Content-Type", "application/vnd.weather+json;version=11.0");
-
+        headers.add("Accept", "application/json");
+        headers.add("Content-Type", "application/json");
         return headers;
     }
 
     private static HttpClient httpOptions() {
-        SslContext context;
-        ConfigMeta timeoutConfig = null;
-
+        SslContext context = null;
         try {
             context = SslContextBuilder.forClient()
                     .trustManager(InsecureTrustManagerFactory.INSTANCE)
                     .build();
-            timeoutConfig = InMemoryMetaConfig.getConfigMeta("config.meta.weather.timeout").orElseThrow();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        int timeout = Integer.parseInt(timeoutConfig.getValue());
+        int timeout = 15000;
 
+        SslContext finalContext = context;
         return HttpClient.create()
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, timeout)
-                .responseTimeout(Duration.ofMillis(timeout))
-                .secure(t -> t.sslContext(context))
+       //         .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, timeout)
+                .responseTimeout(Duration.ofSeconds(15))
+                .secure(t -> t.sslContext(finalContext))
                 .doOnConnected(conn -> {
                     conn.addHandlerLast(new ReadTimeoutHandler(timeout, TimeUnit.MILLISECONDS));
                     conn.addHandlerLast(new WriteTimeoutHandler(timeout, TimeUnit.MILLISECONDS));
